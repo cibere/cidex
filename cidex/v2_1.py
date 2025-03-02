@@ -1,15 +1,15 @@
 from __future__ import annotations
 
 from collections.abc import Iterable
-from typing import Any, Mapping, Literal
+from typing import Any, Mapping, Literal, TypeAlias
 
 from msgspec import Struct, msgpack
 from msgspec import field as struct_field
 
 __all__ = "Entry", "VariantManifest", "CacheIndex", "ApiIndex", "Cache", "MutableCache"
 
-type Cache = Mapping[str, Entry]
-type MutableCache = dict[str, Entry]
+Cache: TypeAlias = Mapping[str, "Entry"]
+MutableCache: TypeAlias = dict[str, "Entry"]
 
 encoder = msgpack.Encoder()
 
